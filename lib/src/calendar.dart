@@ -4,7 +4,7 @@
 part of table_calendar;
 
 /// Callback exposing currently selected day.
-typedef void OnDaySelected(DateTime day, List events, List holidays);
+typedef void OnDaySelected(DateTime day, List events);
 
 /// Callback exposing currently visible days (first and last of them), as well as current `CalendarFormat`.
 typedef void OnVisibleDaysChanged(
@@ -268,7 +268,6 @@ class _TableCalendarState extends State<TableCalendar>
       widget.onDaySelected(
         day,
         widget.calendarController.visibleEvents[_getEventKey(day)] ?? [],
-        widget.calendarController.visibleHolidays[_getHolidayKey(day)] ?? [],
       );
     }
   }
@@ -297,7 +296,6 @@ class _TableCalendarState extends State<TableCalendar>
       widget.onDayLongPressed(
         day,
         widget.calendarController.visibleEvents[_getEventKey(day)] ?? [],
-        widget.calendarController.visibleHolidays[_getHolidayKey(day)] ?? [],
       );
     }
   }
